@@ -1,19 +1,20 @@
 import './index.css';
-
-const handleClick = () => {
-  alert('Hello Ninja')
-}
-
-const handleClickAgain = ( name ) => {
-  alert('Hello ' + name)
-}
+import { useState } from 'react';
 
 const Home = () => {
+  const [name, setName] = useState('Linus');
+  const [age, setAge] = useState(20);
+
+  const handleClick = () => {
+    setName('Mario')
+    setAge(60);
+  }
+
   return (
     <div className="b-home">
       <h1 className="c-title">Homepage</h1>
       <button onClick={handleClick}>Click me</button>
-      <button onClick={() => handleClickAgain('Linus')}>Click me Again</button>
+      <p> { name } is { age } years old</p>
     </div>
   );
 }
